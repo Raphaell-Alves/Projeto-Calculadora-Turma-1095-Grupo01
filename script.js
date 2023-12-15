@@ -1,64 +1,52 @@
-function somar(){
-    const primeiroNumero = parseFloat(prompt("Digite um Número"));
-    const segundoNumero = parseFloat(prompt("Digite outro Número"));
-    const resultadoSomar = primeiroNumero + segundoNumero;
-    alert("O Valor da Soma é: "+ resultadoSomar)
-}
+let arrHistorico = [];
 
-function subtrair(){
-    const primeiroNumero = parseFloat(prompt("Digite um Número"));
-    const segundoNumero = parseFloat(prompt("Digite outro Número"));
-    const resultadoSubtrair = primeiroNumero - segundoNumero;
-    alert("O Valor da Subtração é: "+ resultadoSubtrair);
-}
+const soma = (valor1, valor2) => alert(`O Valor da Soma é: ${valor1 + valor2}`) & arrHistorico.push(`• ${valor1} + ${valor2} = ${valor1 + valor2}`);
 
-function divisao(){
-    const primeiroNumero = parseFloat(prompt("Digite um Número"));
-    const segundoNumero = parseFloat(prompt("Digite outro Número"));
+const subtracao = (valor1, valor2) => alert(`O Valor da Subtração é: : ${valor1 - valor2}`) & arrHistorico.push(`• ${valor1} - ${valor2} = ${valor1 - valor2}`);
 
-    if(segundoNumero !== 0){
-        const resultadoDivisao = primeiroNumero / segundoNumero;
-        alert("O Valor da Divisão é: " + resultadoDivisao)
-    }else{
-        alert("Não Podemos dividir por 0")
+const divisao = (valor1, valor2) => valor2 ? alert(`O Valor da Divisão é: ${valor1 / valor2}`) & arrHistorico.push(`• ${valor1} / ${valor2} = ${valor1 / valor2}`) : alert('Não Podemos dividir por 0') & operacoesCalculadora();
+
+const multiplicacao = (valor1, valor2) => alert(`O Valor da Multiplicação é: : ${valor1 * valor2}`) & arrHistorico.push(`• ${valor1} * ${valor2} = ${valor1 * valor2}`);
+
+const raizQuadrada = (valor1) => (valor1 >= 0) ? alert(`O Valor da Raiz Quadrada é: ${Math.sqrt(valor1).toFixed(2)}`) & arrHistorico.push(`• O Valor da Raiz Quadrada é: ${Math.sqrt(valor1).toFixed(2)}`) : alert("Não Podemos Calcular Números negativos");
+
+const potenciacao = (valor1, valor2) => alert(`O valor da Potência de ${valor1} sobre ${valor2} é: ${Math.pow(valor1, valor2)}`) & arrHistorico.push(`• O valor da Potência de ${valor1} sobre ${valor2} é: ${Math.pow(valor1, valor2)}`);
+
+const listarHistoricoCalculadora = () => alert(arrHistorico.join("\n"));
+
+// Receber valor numérico:
+function receberNumero() {
+    for (let i = 0; i < 1;) {
+        let numeroRecebido = parseFloat(prompt("Digite um Número"));
+        if (!isNaN(numeroRecebido)) {
+            return numeroRecebido;
+        }
+        alert("Valor invalido!!!\nTente Novamente.")
     }
 }
 
-function multiplicar(){
-    const primeiroNumero = parseFloat(prompt("Digite um Número"));
-    const segundoNumero = parseFloat(prompt("Digite outro Número"));
-    const resultadoMultiplicar = primeiroNumero * segundoNumero;
-    alert("O Valor da Multiplicação é: "+ resultadoMultiplicar)
-}
+// Menu calculadora:
+function operacoesCalculadora() {
+    const calculadora = prompt(`Digite uma escolha para a Calculadora: \n\n• Soma: + \n• Subtração: - \n• Divisão: / \n• Multiplicação: * \n• Raiz: sqrt \n• Potênciação: pow \n• Histórico: hist`); 
 
-function raizQuadrada(){
-    const numeroDaRaiz = parseFloat(prompt("Digite um Número"));
-
-    if(numeroDaRaiz >=0){
-        const resultadoRaiz = Math.sqrt(numeroDaRaiz);
-        alert("O Valor da Raiz Quadrada é: " + resultadoRaiz);
-    }else {
-        alert("Não Podemos Calcular Números negativos")
-    }
-}
-
-function operacoesCalculadora(){
-    const calculadora = prompt("Digite uma escolha para a Calculadora: +, -, /, *, sqrt (raiz)");
-
-    switch (calculadora){
-        case '+':  somar();
+    switch (calculadora) {
+        case '+':  soma(receberNumero(), receberNumero());
             break;
-        case '-': subtrair();
+        case '-': subtracao(receberNumero(), receberNumero());
             break;
-        case '/': divisao();
+        case '/': divisao(receberNumero(), receberNumero());
             break;
-        case '*': multiplicar();
+        case '*': multiplicacao(receberNumero(), receberNumero());
             break;
-        case 'sqrt': raizQuadrada();
+        case 'sqrt': raizQuadrada(receberNumero());
             break;
-        default: alert("Erro, Digite Novamente!!!")
-
-    }
+        case 'pow': potenciacao(receberNumero(), receberNumero());
+            break;
+        case 'hist': listarHistoricoCalculadora();
+            break;
+        default: alert("Erro, Digite Novamente!!!") & operacoesCalculadora();
+            break;
+    } operacoesCalculadora();
 }
 
 operacoesCalculadora();
