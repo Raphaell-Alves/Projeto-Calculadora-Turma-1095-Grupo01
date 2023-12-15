@@ -1,64 +1,70 @@
-function somar(){
+function somar() {
     const primeiroNumero = parseFloat(prompt("Digite um Número"));
     const segundoNumero = parseFloat(prompt("Digite outro Número"));
     const resultadoSomar = primeiroNumero + segundoNumero;
-    alert("O Valor da Soma é: "+ resultadoSomar)
+    alert("O Valor da Soma é: " + resultadoSomar)
 }
 
-function subtrair(){
+function subtrair() {
     const primeiroNumero = parseFloat(prompt("Digite um Número"));
     const segundoNumero = parseFloat(prompt("Digite outro Número"));
     const resultadoSubtrair = primeiroNumero - segundoNumero;
-    alert("O Valor da Subtração é: "+ resultadoSubtrair);
+    alert("O Valor da Subtração é: " + resultadoSubtrair);
 }
 
-function divisao(){
+function divisao() {
     const primeiroNumero = parseFloat(prompt("Digite um Número"));
     const segundoNumero = parseFloat(prompt("Digite outro Número"));
 
-    if(segundoNumero !== 0){
+    if (segundoNumero !== 0) {
         const resultadoDivisao = primeiroNumero / segundoNumero;
         alert("O Valor da Divisão é: " + resultadoDivisao)
-    }else{
+    } else {
         alert("Não Podemos dividir por 0")
     }
 }
 
-function multiplicar(){
+function multiplicar() {
     const primeiroNumero = parseFloat(prompt("Digite um Número"));
     const segundoNumero = parseFloat(prompt("Digite outro Número"));
     const resultadoMultiplicar = primeiroNumero * segundoNumero;
-    alert("O Valor da Multiplicação é: "+ resultadoMultiplicar)
+    alert("O Valor da Multiplicação é: " + resultadoMultiplicar)
 }
 
-function raizQuadrada(){
+function raizQuadrada() {
     const numeroDaRaiz = parseFloat(prompt("Digite um Número"));
 
-    if(numeroDaRaiz >=0){
+    if (numeroDaRaiz >= 0) {
         const resultadoRaiz = Math.sqrt(numeroDaRaiz);
         alert("O Valor da Raiz Quadrada é: " + resultadoRaiz);
-    }else {
+    } else {
         alert("Não Podemos Calcular Números negativos")
     }
 }
 
-function operacoesCalculadora(){
-    const calculadora = prompt("Digite uma escolha para a Calculadora: +, -, /, *, sqrt (raiz)");
+function operacoesCalculadora() {
+    let calculadora;
+    do {
+        calculadora = prompt(`Digite uma operação para a Calculadora: +, -, /, *, sqrt (raiz)`);
+        if (!calculadora)
+            calculadora = "0";
 
-    switch (calculadora){
-        case '+':  somar();
-            break;
-        case '-': subtrair();
-            break;
-        case '/': divisao();
-            break;
-        case '*': multiplicar();
-            break;
-        case 'sqrt': raizQuadrada();
-            break;
-        default: alert("Erro, Digite Novamente!!!")
+        switch (calculadora) {
+            case '+': somar();
+                break;
+            case '-': subtrair();
+                break;
+            case '/': divisao();
+                break;
+            case '*': multiplicar();
+                break;
+            case 'sqrt': raizQuadrada();
+                break;
+            case '0': 
+                
+                break;
+            default: alert("Erro, Digite Novamente!!!")
 
-    }
+        }
+    }while (calculadora !== '0');
 }
-
-operacoesCalculadora();
