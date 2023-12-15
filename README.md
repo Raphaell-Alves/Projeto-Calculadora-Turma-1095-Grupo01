@@ -1,6 +1,6 @@
 # Projeto-Calculadora-Turma-1095-Grupo01
 
-Este projeto consiste em uma calculadora simples desenvolvida em JavaScript, HTML. A calculadora realiza operações básicas como adição, subtração, multiplicação, divisão e cálculo da raiz quadrada. O usuário interage com a calculadora através de prompts para inserir os números e escolhe a operação desejada através de um menu.
+Este projeto consiste em uma calculadora simples desenvolvida em JavaScript, HTML. A calculadora realiza operações básicas como adição, subtração, multiplicação, divisão, raiz quadrada e potênciação. O usuário interage com a calculadora através de prompts para inserir os números e escolhe a operação desejada através de um menu.
 
 ## 🔥 Introdução
 
@@ -16,6 +16,10 @@ Divide o primeiro número pelo segundo, desde que o segundo número não seja ze
 Multiplica dois números e exibe o resultado.
 #### Raiz Quadrada (sqrt): 
 Calcula a raiz quadrada de um número, desde que o número seja não-negativo, e exibe o resultado. Caso contrário, exibe uma mensagem de erro.
+#### Potênciação (pow):
+Operação matemática utilizada para a multiplicação de fatores iguais (um número multiplicado X vezes por ele mesmo).
+#### Histórico (hist):
+Exibe o histórico de operações realizadas durante a sessão do usuário.
 
 ### ⚙️ Pré-requisitos
 
@@ -61,3 +65,4 @@ Coloque aqui as ferramentas que você usou para criar seu projeto, exemplo:
 - <a href='https://github.com/LucasDev9645'>Lucas Freitas</a>
 - <a href='https://github.com/dalanmarinho'>Dalan Marinho</a>
 - <a href='https://github.com/Rvssa'>Larissa Vasconcelos</a>
+- <a href='https://github.com/BR-Darkness'>Vitor Galindo</a>
